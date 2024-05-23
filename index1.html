@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Suplementos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>FITNESS STORE</h1>
+            </div>
+            <div class="cart-icon">
+                <a href="#" onclick="toggleCart()">
+                    <img src="img/cart-icon.png" alt="Carrito de Compras">
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="inicio1.html">Inicio</a></li>
+                    <li><a href="#suplementos">Suplementos</a></li>
+                    
+                    <!-- Botón de Cerrar Sesión -->
+                    <li><button id="cerrarSesionBtn">Cerrar Sesión</button></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="header__texto">
+            <h2 class="no_margin">TIENDA DE SUPLEMENTOS</h2>
+            <p>"Cada día es una nueva oportunidad para comenzar de nuevo."</p>
+            <h3>Bienvenido usuario</h3>
+        </div>
+    </header>
+
+
+    <br>
+
+
+
+    <main id="inicio">
+        <h2 class="titulo">SUPLEMENTOS</h2>
+        <section class="products" id="suplementos"></section>
+    </main>
+
+    <!-- Carrito de compras -->
+    <div class="cart" id="cart">
+        <div class="cart-header">
+            <h3>Carrito de Compras</h3>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Productos del carrito se agregarán aquí -->
+        </div>
+        <div class="cart-footer">
+            <button onclick="checkout()">Pagar</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tienda Suplementos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function loadProducts() {
+            fetch('productos_obtener.php')
+                .then(response => response.json())
+                .then(data => {
+                    const productsSection = document.getElementById('suplementos');
+                    productsSection.innerHTML = '';
+
+                    data.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.classList.add('product');
+
+                        productDiv.innerHTML = `
+                            <img src="${product.imagen}" alt="${product.nombre}">
+                            <h3>${product.nombre}</h3>
+                            <p>${product.descripcion}</p>
+                            <p>Precio: $${product.precio}</p>
+                            <button class="boton-comprar" onclick="addToCart(${product.id}, '${product.nombre}', ${product.precio}, '${product.imagen}')">Añadir al Carrito</button>
+                        `;
+
+                        productsSection.appendChild(productDiv);
+                    });
+                })
+                .catch(error => console.error('Error al cargar los productos:', error));
+        }
+
+        function addToCart(id, nombre, precio, imagen) {
+            const product = { id, nombre, precio, imagen };
+            cart.push(product);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+
+            cart.forEach((product, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <img src="${product.imagen}" alt="${product.nombre}">
+                    <h4>${product.nombre}</h4>
+                    <p>Precio: $${product.precio}</p>
+                    <span class="remove-item" onclick="removeFromCart(${index})">Eliminar</span>
+                `;
+
+                cartItems.appendChild(cartItem);
+            });
+
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function toggleCart() {
+            const cart = document.getElementById('cart');
+            cart.style.display = cart.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function promptEliminarProducto() {
+            const productoId = prompt("Ingrese el ID del producto que desea eliminar:");
+            if (productoId) {
+                eliminarProducto(productoId);
+            }
+        }
+
+        function eliminarProducto(id) {
+            fetch(`productos_eliminar.php?id=${id}`, {
+                method: 'GET'
+            })
+            .then(response => {
+                if (response.ok) {
+                    loadProducts();
+                    alert('Producto eliminado correctamente.');
+                } else {
+                    alert('Error al eliminar producto.');
+                }
+            })
+            .catch(error => console.error('Error al eliminar producto:', error));
+        }
+
+        function checkout() {
+            // Aquí puedes agregar lógica adicional si es necesario
+            window.location.href = 'factura.html';
+        }
+
+        // Evento para cerrar sesión
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el botón de cerrar sesión
+            var cerrarSesionBtn = document.getElementById("cerrarSesionBtn");
+
+            // Agregar un evento click al botón
+            cerrarSesionBtn.addEventListener("click", function() {
+                // Redireccionar a index2.html
+                window.location.href = "index2.html";
+            });
+        });
+
+        window.onload = loadProducts;
+    </script>
+</body>
+</html>

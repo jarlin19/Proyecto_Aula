@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión y Registro</title>
+    <link rel="stylesheet" href="iniciosesion.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario de Inicio de Sesión -->
+        <form id="loginForm" class="form active" action="login.php" method="POST">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="loginUsername" name="loginUsername" placeholder="Nombre de Usuario" required>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+            <p id="toggleToRegister">¿No tienes una cuenta? <a href="#" id="registerLink">Regístrate aquí</a>.</p>
+        </form>
+        
+        <!-- Formulario de Registro -->
+        <form id="registerForm" class="form" action="register.php" method="POST">
+            <h2>Registrarse</h2>
+            <input type="text" id="registerUsername" name="registerUsername" placeholder="Nombre de Usuario" required>
+            <input type="email" id="registerEmail" name="registerEmail" placeholder="Correo Electrónico" required>
+            <input type="password" id="registerPassword" name="registerPassword" placeholder="Contraseña" required>
+            <label for="userType">Selecciona el tipo de usuario:</label>
+            <select id="userType" name="userType" required>
+                <option value="usuario">Usuario</option>
+                <option value="administrador">Administrador</option>
+            </select>
+            <button type="submit">Registrarse</button>
+            <p id="toggleToLogin">¿Ya tienes una cuenta? <a href="#" id="loginLink">Inicia sesión aquí</a>.</p>
+        </form>
+    </div>
+
+    <!-- Agregar el JavaScript al final del body -->
+    <script>
+        document.getElementById('registerLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('registerForm').classList.add('active');
+        });
+
+        document.getElementById('loginLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('registerForm').classList.remove('active');
+            document.getElementById('loginForm').classList.add('active');
+        });
+    </script>
+</body>
+</html>

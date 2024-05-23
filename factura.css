@@ -1,0 +1,118 @@
+:root {
+    /* COLORES */
+    --azuloscuro: #000342;
+    --colorhover:#6992FF;
+    --boton: #366DFF;
+    --logocolor: #002eb9;
+    --azulmedioclaro: #6992FF;
+    --blanco: #ffffff;
+    --negro: #000000;
+
+
+    /* TIPOGRAFIA */
+    --fuente1: serif;
+}
+
+
+
+
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background:linear-gradient(to right, #fff, #007bff);
+  }
+  
+  /* Estilos para el encabezado */
+  header {
+    color: var(--blanco);
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  header h1 {
+      margin: 0;
+  }
+  
+  /* Estilos para el contenedor */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Estilos para el contenedor del formulario */
+  .form-container {
+    width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      color: var(--logocolor);
+  }
+  
+  /* Estilos para los campos del formulario */
+  .form-group {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background-color: transparent;
+    transition: border-bottom-color 0.3s;
+  }
+  
+  .form-group input[type="text"]:focus,
+  .form-group input[type="email"]:focus {
+    border-bottom-color: #007bff;
+    outline: none;
+  }
+  
+  .form-group label {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    color: #888;
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+  
+  .form-group input[type="text"]:focus ~ label,
+  .form-group input[type="email"]:focus ~ label,
+  .form-group input[type="text"]:valid ~ label,
+  .form-group input[type="email"]:valid ~ label {
+    bottom: 30px;
+    font-size: 12px;
+    color: #007bff;
+  }
+  
+  /* Estilos para el botón de comprar */
+  input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

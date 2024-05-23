@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra</title>
+    <link rel="stylesheet" href="factura.css"> 
+</head>
+<body>
+    <header>
+        <h1>GYM ATLAS STORE</h1>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <h2>Completa tu compra</h2>
+            <form id="purchaseForm" action="compras.php" method="POST">
+                <div class="form-group">
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="nombre">Nombre</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="direccion" name="direccion" required>
+                    <label for="direccion">Dirección de envío</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="ciudad" name="ciudad" required>
+                    <label for="ciudad">Ciudad</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="codigo-postal" name="codigo-postal" required>
+                    <label for="codigo-postal">Código Postal</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="tarjeta" name="tarjeta" required>
+                    <label for="tarjeta">Número de tarjeta</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="fecha" name="fecha" placeholder="MM/AA" required>
+                    <label for="fecha">Fecha de vencimiento</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="cvv" name="cvv" maxlength="3" required>
+                    <label for="cvv">CVV</label>
+                </div>
+                <input type="submit" value="Comprar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

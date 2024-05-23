@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Preferencias</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <div class="container">
+        <form id="preferenciasForm" class="form">
+            <h2>Formulario de Preferencias de Suplementos</h2>
+
+            <fieldset>
+                <legend>Objetivo Principal</legend>
+                <label>
+                    <input type="checkbox" name="objetivo" value="masa_muscular" required> Ganar masa muscular
+                </label><br>
+                <label>
+                    <input type="checkbox" name="objetivo" value="perder_peso"> Perder peso
+                </label><br>
+                <label>
+                    <input type="checkbox" name="objetivo" value="aumentar_energia"> Aumentar energía
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Nivel de Actividad Física</legend>
+                <label>
+                    <input type="checkbox" name="actividad[]" value="sedentario" required>
+                    Sedentario
+                </label><br>
+                <label>
+                    <input type="checkbox" name="actividad[]" value="moderado">
+                    Moderado
+                </label><br>
+                <label>
+                    <input type="checkbox" name="actividad[]" value="activo">
+                    Activo
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Restricciones Dietéticas</legend>
+                <label>
+                    <input type="checkbox" name="restriccion[]" value="ninguna">
+                    Ninguna
+                </label><br>
+                <label>
+                    <input type="checkbox" name="restriccion[]" value="lactosa">
+                    Intolerancia a la lactosa
+                </label><br>
+                <label>
+                    <input type="checkbox" name="restriccion[]" value="alergias">
+                    Alergias alimentarias
+                </label><br>
+                <label>
+                    <input type="checkbox" name="restriccion[]" value="vegetariano">
+                    Dieta vegetariana
+                </label><br>
+                <label>
+                    <input type="checkbox" name="restriccion[]" value="vegano">
+                    Dieta vegana
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Suplementos Anteriores</legend>
+                <label>
+                    <input type="checkbox" name="suplementos_anteriores[]" value="Proteinas">
+                    Proteinas
+                </label><br>
+                <label>
+                    <input type="checkbox" name="suplementos_anteriores[]" value="Creatina">
+                    Creatina
+                </label><br>
+                <label>
+                    <input type="checkbox" name="suplementos_anteriores[]" value="Vitaminas">
+                    Vitaminas
+                </label><br>
+                <label>
+                    <input type="checkbox" name="suplementos_anteriores[]" value="Otros">
+                    Otros
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Preferencia de Marca</legend>
+                <label>
+                    <input type="checkbox" name="marca[]" value="ninguna">
+                    Ninguna
+                </label><br>
+                <label>
+                    <input type="checkbox" name="marca[]" value="Bi Pro">
+                    Bi Pro
+                </label><br>
+                <label>
+                    <input type="checkbox" name="marca[]" value="Nutramerican Pharma">
+                    Nutramerican Pharma
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Condición Médica</legend>
+                <label>
+                    <input type="checkbox" name="condicion_medica[]" value="ninguna">
+                    Ninguna
+                </label><br>
+                <label>
+                    <input type="checkbox" name="condicion_medica[]" value="diabetes">
+                    Diabetes
+                </label><br>
+                <label>
+                    <input type="checkbox" name="condicion_medica[]" value="hipertension">
+                    Hipertensión
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Medicamentos</legend>
+                <label>
+                    <input type="checkbox" name="medicamentos[]" value="ninguno">
+                    Ninguno
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Otro Factor</legend>
+                <label>
+                    <input type="checkbox" name="otro_factor[]" value="ninguno">
+                    Ninguno
+                </label><br>
+                <label>
+                    <input type="checkbox" name="otro_factor[]" value="ingredientes_naturales">
+                    Preferencia por ingredientes naturales
+                </label><br>
+                <label>
+                    <input type="checkbox" name="otro_factor[]" value="sin_saborizantes_artificiales">
+                    Preferencia por productos sin saborizantes/artificiales
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Presupuesto Maximo</legend>
+                <label>
+                    <input type="checkbox" name="presupuesto[]" value="155">
+                    Hasta $155.000
+                </label><br>
+                <label>
+                    <input type="checkbox" name="presupuesto[]" value="380">
+                    Hasta $380.000
+                </label><br>
+                <label>
+                    <input type="checkbox" name="presupuesto[]" value="500">
+                    Hasta $500.000
+                </label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Forma de Suplementos</legend>
+                <label>
+                    <input type="checkbox" name="forma[]" value="capsulas">
+                    Cápsulas
+                </label><br>
+                <label><input type="checkbox" name="forma[]" value="polvos">
+                    Polvos
+                </label><br>
+                <label>
+                    <input type="checkbox" name="forma[]" value="liquidos">
+                    Líquidos
+                </label><br>
+            </fieldset>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="formulario.js"></script>
+</body>
+</html>
